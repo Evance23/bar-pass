@@ -1,3 +1,6 @@
+import random
+
+
 class User:
 
     user_list = [] #empty user list
