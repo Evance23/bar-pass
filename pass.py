@@ -101,6 +101,63 @@ def main():
         if login_user == login:
             print(f"Hello {username}.Welcome To PassWord-Locker")  
             print('\n')
+            print('\n')
+    while True:
+        print("choose the following short code: \n\t\t nw- Create Account \n\t\t display- Display Credentials \n\t\t find - Find a credential \n\t\t del - Delete credential \n\t\t ex - Exit the application ")
+        short_code = input().lower().strip()
+        if short_code == "nw":
+            print("Account name")
+            account = input().lower()
+            print("Your Account username")
+            userName = input()
+
+            while True:
+                print(" \n\t\t TP - To type your own pasword if you already have an account:")
+                password_Choice = input().lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Enter Your Own Password\n")
+                    break
+                elif password_Choice == 'gp':
+                    password = generate_password()
+                    break
+                else:
+                    print("Invalid password please try again")
+            save_record(create_new_record(account,userName,password))
+            print('\n')
+            print(f"Account record for: {account} - UserName: {userName} - Password:{password} created succesfully")
+            print('\n')
+        elif short_code == 'display':
+            if display_accounts_details():
+                print("Here's your list of accounts: ")
+                for account in display_accounts_details():
+                    print(f" Account:{account.account} \n User Name:{username}\n Password:{password}")
+            else:
+                print("Sorry we cant find what you are looking for")
+                
+        elif short_code == "find":
+            print("Enter the Account Name you want to search for")
+            search_name = input().lower()
+            if find_record(search_name):
+                search_record = find_record(search_name)
+                print(f"Account Name : {search_record.account}")
+                print(f"User Name: {search_record.userName} Password :{search_record.password}")
+
+            else:
+                print("Sorry we cant find what you are looking for")
+                print('\n')
+        elif short_code == "del":
+            print("Enter the account name  you want to delete")
+            search_name = input().lower()
+            
+            if find_record(search_name):
+                search_record = find_record(search_name)
+                search_record.delete_record()
+                print('\n')
+                print(f"Your stored accounts for : {search_record.account} successfully deleted!!!")
+                print('\n')
+                
+            else:
+                print("sorry can't find the account you are looking for, kindly check again")
 
 
 
