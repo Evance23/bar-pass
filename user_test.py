@@ -50,3 +50,45 @@ class TestRecords(unittest.TestCase):
         method that does clean up after each test case has been run
         '''
         Records.records_list = []
+
+    def test_save_many_accounts(self):
+        self.new_record.save_details()
+        test_record = Records("fb","user","0123")
+        test_record.save_details()
+        self.assertEqual(len(Records.records_list),2)
+
+    def test_delete_record(self):
+        '''
+        test case for the delete function
+        '''
+        self.new_record.save_details()
+        test_record = Records('fb','user','0123')
+        test_record.save_details()
+
+        self.new_record.delete_record()
+        self.assertEqual(len(Records.records_list),1)
+
+    def test_find_records(self):
+        '''
+        test case to check if account can be searched
+        '''
+        self.new_record.save_details()
+        test_record = Records('fb','user','0123')
+        test_record.save_details()
+
+        the_record = Records.find_record('fb')
+
+        self.assertEqual(the_record.account,test_record.account)
+
+    def test_display_all_records(self):
+        '''
+        test case that displays all saved records
+        '''
+        self.assertEqual(Records.display_records(),Records.records_list)
+
+
+
+
+    
+if __name__ == "__main__":
+    unittest.main()
