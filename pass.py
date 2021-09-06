@@ -159,7 +159,11 @@ def main():
             else:
                 print("sorry can't find the account you are looking for, kindly check again")
 
-
+        elif short_code == 'gp':
+            password = generate_Password()
+            print(f" {password} Proceed to your Account")
+        elif short_code == 'ex':
+            print("See you next time!")
 
 
 
