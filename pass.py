@@ -88,7 +88,19 @@ def main():
             elif password_Choice == 'gp':
                 password = generate_password()
                 break
-
+            else:
+                print("Invalid password please try again")
+        save_user(create_new_user(username,password))
+        print(f"Hello {username}, Your account has been logged in succesfully! Your password is: {password}")
+    
+    elif short_code == "li":
+        print("Enter your User name and your Password to log in:")
+        username = input("User name: ")
+        password = input("password: ")
+        login = login_user(username,password)
+        if login_user == login:
+            print(f"Hello {username}.Welcome To PassWord-Locker")  
+            print('\n')
 
 
 
