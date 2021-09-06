@@ -64,3 +64,16 @@ def login_user(username,password):
 #     We import the framework then declare a function that copies the emails.
 #     """
 #     return Credentials.copy_password(account)
+def main():
+    print('\n')
+    print(" Welcome to Bar-Pass!!!")
+
+
+
+
+
+
+
+
+    if __name__ == '__main__':
+        main()
