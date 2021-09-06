@@ -23,3 +23,30 @@ class UserTest(unittest.TestCase):
         '''
         self.new_user.save_user()
         self.assertEqual(len(User.user_list),1)
+        
+class TestRecords(unittest.TestCase):
+    '''
+    test class that defines test cases for the Records class
+    '''
+    def setUp(self):
+        self.new_record = Records('Gmail','user', '0123')
+    def test_init(self):
+        '''
+        test case to check if instance is initalized correctly
+        '''
+        self.assertEqual(self.new_record.account,'Gmail')
+        self.assertEqual(self.new_record.userName,'user')
+        self.assertEqual(self.new_record.password,'0123')
+
+    def save_record_test(self):
+        '''
+        test case to test if the object is saved
+        '''
+        self.new_record.save_details()
+        self.assertEqual(len(Records.records_list),1)
+
+    def tearDown(self):
+        '''
+        method that does clean up after each test case has been run
+        '''
+        Records.records_list = []
