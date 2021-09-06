@@ -47,7 +47,7 @@ def delete_record(records):
     """
     Function to delete the records in the list
     """
-    record.delete_record()
+    delete_record()
 
 def find_record(account):
   
@@ -160,7 +160,7 @@ def main():
                 print("sorry can't find the account you are looking for, kindly check again")
 
         elif short_code == 'gp':
-            password = generate_Password()
+            password = generate_password()
             print(f" {password} Proceed to your Account")
         elif short_code == 'ex':
             print("See you next time!")
